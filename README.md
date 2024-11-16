@@ -6,3 +6,5 @@
 
 主要根据https://github.com/17620133700/mimic-Zone-Zero-Rope-Net
 专门设计的官网
+
+![部分预览](https://github.com/user-attachments/assets/aca68a28-3127-4599-ab10-1543c3b19f3f)
