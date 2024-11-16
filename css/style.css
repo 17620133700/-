@@ -1,0 +1,127 @@
+@import url("http://fonts.googleapis.com/css?family=Righteous");
+
+h1{
+    position: relative;
+    font-size: 100px;
+    color: #f6d8d5;
+    width: fit-content;
+	
+}
+h1::before{
+    content: attr(data-text);
+    color: #313f97;
+    position: absolute;
+    top: 30;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    /* 动画过渡 */
+    transition: 0.2s;
+}
+h1:hover::before{
+    top: 0.04em;
+    left: 0.04em;
+}
+h1::after{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    background: radial-gradient(rgba(236,34,37,0.5) 0.0125em, transparent 0.0125em);
+    background-size: 8px 8px;
+    background-clip: text;
+    -webkit-text-stroke: 1px #ec2225;
+    transition: 0.2s;
+}
+h1:hover::after{
+    top: -0.04em;
+    left: -0.04em;
+}
+
+.container1 h1{
+    font-size: 5vw;
+    color: var(--bg);
+    text-shadow: -1px -1px 0 #fff,1px 1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,
+    calc(var(--x) * -0.1vw) calc(var(--y) * -0.1vw) 0px hsl(calc(var(--x) + var(--y) * 11) 30% 50% / 40%),
+    calc(var(--x) * -0.2vw) calc(var(--y) * -0.2vw) 1px hsl(calc(var(--x) + var(--y) * 12) 30% 50% / 36%),
+    calc(var(--x) * -0.3vw) calc(var(--y) * -0.3vw) 2px hsl(calc(var(--x) + var(--y) * 13) 30% 50% / 32%),
+    calc(var(--x) * -0.4vw) calc(var(--y) * -0.4vw) 3px hsl(calc(var(--x) + var(--y) * 14) 30% 50% / 28%),
+    calc(var(--x) * -0.5vw) calc(var(--y) * -0.5vw) 4px hsl(calc(var(--x) + var(--y) * 15) 30% 50% / 24%),
+    calc(var(--x) * -0.6vw) calc(var(--y) * -0.6vw) 5px hsl(calc(var(--x) + var(--y) * 16) 30% 50% / 20%),
+    calc(var(--x) * -0.7vw) calc(var(--y) * -0.7vw) 6px hsl(calc(var(--x) + var(--y) * 17) 30% 50% / 16%),
+    calc(var(--x) * -0.8vw) calc(var(--y) * -0.8vw) 7px hsl(calc(var(--x) + var(--y) * 18) 30% 50% / 12%);
+}
+
+
+
+@media screen and (max-width:800px){
+	.zt-card{
+    overflow: auto;
+  }
+		
+	}
+
+/**关于模板样式**/
+.zt-card{
+	background-color: rgba(0, 0, 0, 0.0);
+	backdrop-filter: blur(5px);
+	width: 1000px;
+	height: 300px;
+	border-radius: 25px;
+  
+}
+ .co {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+  }
+
+  .card1 {
+	background-color: #060606;
+	max-height: 250px;
+    display: flex;
+    margin: 20px;
+    padding: 15px;
+    width: 300px;
+    border: 5px solid #333;
+    border-radius: 25px 0px 25px 0px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  }
+.card1:hover{
+    border: 5px solid #FFFF00;
+    }
+  .card1 img {
+    width: 150px;
+    height: auto;
+    border-radius: 20px 0px 25px 0px;
+    background-color: #FFF;
+  }
+
+  .card1-content {
+	flex-direction: column;
+    padding: 15px;
+    
+    flex-grow: 1;
+    
+  }
+
+  .card1-content h3 {
+    margin: 0;
+    color: #FFF;
+  }
+
+  .card1-content p {
+    margin: 10px 0;
+    color: #FFF;
+  }
+ .zt-text{
+width: 100%;
+display: flex;
+margin: 15px;
+padding: 10px;
+font-size: 30px;
+justify-content: left;
+color: #ff6600;
+}

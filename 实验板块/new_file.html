@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>响应式卡片轮播示例</title>
+<style>
+	.zt{
+		width: 700px;
+		display: flex;
+		border-radius: 15px;
+		
+		padding: 15px;
+	}
+    .carousel-container {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+		border-style:solid;
+		border-width:5px;
+		border-color: aquamarine;
+		border-radius: 10px;
+    }
+
+    .card {
+        display: flex;
+        align-items: center;
+        background: linear-gradient(to right, #ffffff, #f0f0f0);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+    }
+	
+    .card.active {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+        transform: translateX(0);
+    }
+
+    .card img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 5px;
+    }
+
+    .card-content {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 600px) {
+        .card {
+            flex-direction: column;
+        }
+
+        .card img {
+            order: 1; /* 图片在上 */
+        }
+
+        .card-content {
+            order: 2; /* 文本在下 */
+        }
+		.zt{
+			width: 370px;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.carousel-controls {
+			margin-top: 15px;
+			}
+    }
+.wenben{
+	margin: 5px;
+	width: 300px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+    .carousel-controls {
+		margin-top: 200px;
+        padding: 15px;
+		background-color: #1d1d1d;
+		border-radius: 15px 5px 15px 5px;
+		
+    }
+
+    .carousel-dot {
+        display: inline-block;
+        width: 35px;
+        height: 15px;
+        margin: 0 5px;
+        background-color: #ccc;
+        border-radius: 50% 15px 50% 15px;
+        cursor: pointer;
+    }
+
+    .carousel-dot.active {
+        background-color: #f8ff61;
+    }
+</style>
+</head>
+<body>
+	
+<div class="zt">
+<div class="carousel-container">
+    <div class="card active">
+        <img src="../素材/a8cecba77dcf30aac55911791b97d286_5628704406046486367.png" alt="风景图片">
+        <div class="card-content">
+            <div class="card-title"><b>校园分区</b></div>
+            <div class="card-text"><p style="font-size: 10px;">积极向上，阳光，分享独属于你的故事</p></div>
+            <p style="font-size: 10px;">学习心得，知识科普，校园趣事等内容</p>
+        </div>
+    </div>
+	<div class="card ">
+	    <img src="../素材/03ccbe64542570776967153c4ebb08e9_6128696990818407188.png" alt="风景图片">
+	    <div class="card-content">
+	        <div class="card-title"><b>大别野分区</b></div>
+	        <div class="card-text"><p style="font-size: 10px;">畅所欲言交流区</p></div>
+	        <p style="font-size: 10px;">空旷的大草坪上，欢迎各位小伙伴前来玩耍，畅所欲言，欢迎你前来交流</p>
+	    </div>
+	</div>
+	<div class="card ">
+	    <img src="../素材/822d214326e467e99ccf6bccff768de1_8048158907789191989.png" alt="风景图片">
+	    <div class="card-content">
+            <div class="card-title"><b>脑洞分区</b></div>
+            <div class="card-text"><p style="font-size: 10px;">这是一个硬核分区，包的</p></div>
+            <p style="font-size: 10px;">新奇，有趣，好玩的内容，或者脑海灵光一现的奇思妙想，欢迎你的加入</p>
+        </div>
+	</div>
+	
+</div>
+<div class="wenben">
+	<h1>绳网分区</h1>
+<div class="carousel-controls">
+    <!-- 这里将使用JavaScript来动态生成小点 -->
+</div>
+</div>
+</div>
+<script>
+    const cards = document.querySelectorAll('.card');
+    const dotsContainer = document.querySelector('.carousel-controls');
+    let activeCard = 0;
+
+    // 初始化小点
+    function initDots() {
+        for (let i = 0; i < cards.length; i++) {
+            let dot = document.createElement('span');
+            dot.classList.add('carousel-dot');
+            dot.addEventListener('click', () => switchCard(i));
+            dotsContainer.appendChild(dot);
+        }
+        dotsContainer.children[activeCard].classList.add('active');
+    }
+
+    // 切换卡片
+    function switchCard(index) {
+        cards[activeCard].classList.remove('active');
+        dotsContainer.children[activeCard].classList.remove('active');
+        activeCard = index;
+        cards[activeCard].classList.add('active');
+        dotsContainer.children[activeCard].classList.add('active');
+    }
+
+    // 初始化小点
+    initDots();
+</script>
+
+</body>
+</html>

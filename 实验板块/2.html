@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模块2</title>
+<style>
+	.zt-card{
+		max-width: 700px;
+		max-height: 400px;
+	}
+  /* 简单的卡片样式 */
+  .card {
+    display: none;
+	
+    flex-direction: row;
+    /*flex-direction: column;*/
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    background: #f9f9f9;
+    border-radius: 0px 65px 0px 65px;
+    border:15px rgb(0, 0, 0) solid;
+    background-color: black;
+    overflow: hidden;
+	transition: background-color 1s,color 1s, border-radius 1.5s;
+	-webkit-transition: background-color 1s,color 1s, border-radius 1.5s; /* Safari */
+  }
+  .text{
+	  width: auto;
+	  margin: 25px;
+	  padding: 5px;
+    flex-direction: column;
+    justify-content: right;
+  }
+  
+  .card h2,p{
+    color: #f9f9f9;
+	  transition: color 1s;
+	-webkit-transition:color 1s; /* Safari */
+  }
+  .card:hover{
+    background-color: rgb(238, 132, 62);
+	  border-radius: 15px 15px 15px 15px;
+  }
+	.card:hover h2{
+    color: #000000;
+  }
+	.card:hover p{
+    color: #000000;
+  }
+	.card:hover img{
+		border-radius:50%;
+	}
+  .card.active {
+    display: flex;
+  }
+
+  /* 图片容器样式 */
+  .image-container {
+    width: 200px; /* 图片宽度 */
+    height: 200px; /* 图片高度 */
+    margin-bottom: 10px;
+    justify-content: left;
+	  margin: 10px;
+  }
+	
+  .image-container img {
+    width: 100%;
+    height: 100%;
+	  transition: border-radius 1.5s;
+	-webkit-transition:border-radius 1.5s;
+    object-fit: cover;
+    
+  }
+
+  /* 圆点指示器样式 */
+  .indicator {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .indicator li {
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+   background-color: #b4b5ff;
+	
+    /* border-radius: 50%; */
+    cursor: pointer;
+  }
+
+  .indicator li.active {
+   background-image: linear-gradient(#ff5500, #ffaa00);
+   border-radius: 50%;
+    transition: border-radius 0.5s;
+       -webkit-transition: border-radius 0.5s; /* Safari */
+  }
+	@media screen and (max-width: 800px) {
+		.card{
+			flex-direction: column;
+			border-radius:5px;
+		}
+	}
+</style>
+</head>
+<body>
+<div class="zt-card">
+<ul id="card-container" class="card-slider">
+  <li class="card active" id="card1">
+    <div class="image-container">
+      <img src="./3648c898fe68a3a23d8e8fc3de441efd_1.jpg" alt="Jack's Image">
+    </div>
+    <div class="text">
+     <h1>前端工程师</h1>
+	<h2>Jack</h2>
+    <p>微信：......</p >
+    <p>QQ:..........</p >
+    <p>bilbil:.......</p >
+    </div>
+    
+  </li>
+  <li class="card" id="card2">
+    <div class="image-container">
+      <img src="./42d4617e536b7b42a04b2447371d1544_1.jpg" alt="布莫的 Image">
+    </div>
+    <div class="text">
+    <h1>后端工程师</h1>
+    <h2>布莫</h2>
+    <p>微信：</p >
+    <p>QQ:</p >
+    <p>bilbil:</p >
+    </div>
+    
+  </li>
+  <li class="card" id="card3">
+    <div style="justify-content:left;">
+    <h2>关于我们</h2>
+    <p>..............</p >
+    <p>..............</p >
+    <p>..............</p >
+    </div>
+  </li>
+  <!-- 更多卡片 -->
+</ul>
+
+<ul id="indicator" class="indicator">
+  <li class="active" data-target="#card1"></li>
+  <li data-target="#card2"></li>
+  <li data-target="#card3"></li>
+  <!-- 更多圆点 -->
+</ul>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var cards = document.querySelectorAll('.card');
+    var indicators = document.querySelectorAll('.indicator li');
+    var currentCard = 0;
+
+    // 显示第一张卡片和对应的圆点
+    cards[currentCard].classList.add('active');
+    indicators[currentCard].classList.add('active');
+
+    // 为每个圆点添加点击事件
+    indicators.forEach(function(indicator, index) {
+      indicator.addEventListener('click', function() {
+        // 移除当前激活的卡片和圆点
+        cards[currentCard].classList.remove('active');
+        indicators[currentCard].classList.remove('active');
+
+        // 更新当前卡片索引
+        currentCard = index;
+
+        // 显示新的卡片和圆点
+        cards[currentCard].classList.add('active');
+        indicators[currentCard].classList.add('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

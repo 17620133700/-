@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>更多模块</title>
+<style>
+  body{
+          background-color: #000000;
+      }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .card {
+    display: flex;
+    margin: 10px;
+    width: 400px;
+    border: 5px solid #333;
+    border-radius: 25px 0px 25px 0px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  }
+.card:hover{
+    border: 5px solid #FFFF00;
+    }
+  .card img {
+    width: 150px;
+    height: auto;
+    border-radius: 20px 0px 25px 0px;
+    background-color: #FFF;
+  }
+
+  .card-content {
+    padding: 15px;
+    flex-grow: 1;
+    
+  }
+
+  .card-content h3 {
+    margin: 0;
+    color: #FFF;
+  }
+
+  .card-content p {
+    margin: 10px 0;
+    color: #FFF;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- 角色玩法卡片 -->
+  <div class="card">
+    <img src="../素材/黄毛大姐姐.png" alt="凯撒">
+    <div class="card-content">
+      <h3>凯撒</h3>
+      <p>角色玩法介绍...</p >
+    </div>
+  </div>
+  <!-- 重复上面的结构来创建其他卡片 -->
+  <!-- ... -->
+
+  <!-- 高难挑战卡片 -->
+  <div class="card">
+    <img src="../素材/大姐姐.jpg" alt="小游戏攻略">
+    <div class="card-content">
+      <h3>小游戏攻略</h3>
+      <p>高难挑战介绍...</p >
+    </div>
+  </div>
+  <!-- ... -->
+
+  <!-- 新手进阶卡片 -->
+  <div class="card">
+    <img src="../素材/jian.png" alt="新手入门">
+    <div class="card-content">
+      <h3>新手入门</h3>
+      <p>新手进阶介绍...</p >
+    </div>
+  </div>
+  <!-- ... -->
+
+  <!-- 活动收集卡片 -->
+  <div class="card">
+    <img src="../素材/白毛大姐姐.jpg" alt="1.2版本活动指南">
+    <div class="card-content">
+      <h3>1.2版本活动指南</h3>
+      <p>活动收集介绍...</p >
+    </div>
+  </div>
+  <!-- ... -->
+</div>
+
+</body>
+</html>
